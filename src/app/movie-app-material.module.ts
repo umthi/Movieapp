@@ -11,7 +11,7 @@ import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModu
     MdToolbarModule,
     MdIconModule,
     MdInputModule
-],
+  ],
   exports: [
     BrowserAnimationsModule,
     MdButtonModule,

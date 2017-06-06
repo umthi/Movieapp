@@ -1,45 +1,59 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { MovieAppMaterialModule } from './movie-app-material.module';
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
 import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdInputModule} from '@angular/material';
-import { HomeComponent } from './home.component';
-import { SearchComponent } from './search/search.component';
-import { MoviesComponent } from './movies/movies.component';
-import { MoviesService } from './movies/movies.service';
-import { RouterModule, Routes } from '@angular/router';
+import { NavigationComponent } from './navigation/navigation.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { MovieComponent } from './movie/movie.component';
+import { Routes , RouterModule } from '@angular/router';
+import { MovieService } from './service/movie.service';
+import { MovieAppMaterialModule } from './movie-app-material.module';
+import {MovieModule} from './movie/movie.module';
+import {FavMovieComponent} from './fav-movie/favmovie.component';
 
-const routes: Routes = [
-  { path: 'path/:mName',  component: MoviesComponent }
-  ];
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    SearchComponent,
-    MoviesComponent
-  ],
-  exports: [
-  RouterModule],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    MovieAppMaterialModule,
-    BrowserAnimationsModule,
-    MdButtonModule,
-    MdMenuModule,
-    MdCardModule,
-    MdToolbarModule,
-    MdIconModule,
-    MdInputModule,
-    [RouterModule.forRoot(routes)]
-  ],
-  providers: [MoviesService],
-  bootstrap: [AppComponent]
+ declarations: [
+   AppComponent,
+   NavigationComponent,
+   SearchBarComponent,
+   MovieComponent,
+   FavMovieComponent
+
+   ],
+ imports: [
+   BrowserModule,
+   FormsModule,
+   HttpModule,
+   BrowserAnimationsModule,
+   MdButtonModule,
+   MdMenuModule,
+   MdCardModule,
+   MdToolbarModule,
+   MdIconModule,
+   MdInputModule,
+   MaterialModule,
+   MovieAppMaterialModule,
+  MovieModule
+ ],
+ exports: [
+   BrowserAnimationsModule,
+   MdButtonModule,
+   MdMenuModule,
+   MdCardModule,
+   MdToolbarModule,
+   MdIconModule,
+   MdInputModule,
+   RouterModule,
+   SearchBarComponent
+],
+ providers: [ MovieService ],
+ bootstrap: [AppComponent]
 })
 export class AppModule { }
